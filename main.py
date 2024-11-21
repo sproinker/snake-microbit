@@ -11,10 +11,15 @@ while True:
     basic.pause(800)
 
     next_block = [(snake[0][0] + directions[direction][0]) % 5, (snake[0][1] + directions[direction][1]) % 5]
+    def on_button_pressed_a():
+        pass
+    input.on_button_pressed(Button.A, on_button_pressed_a)
+
     if next_block in snake:
         basic.show_string("Game Over")
         break
     snake = [next_block] + snake
+
     if next_block == food:
         while food in snake:
             food = [randint(0,4), randint(0,4)]

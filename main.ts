@@ -11,6 +11,9 @@ while (true) {
     }
     basic.pause(800)
     next_block = [(snake[0][0] + directions[direction][0]) % 5, (snake[0][1] + directions[direction][1]) % 5]
+    input.onButtonPressed(Button.A, function on_button_pressed_a() {
+        
+    })
     if (snake.indexOf(next_block) >= 0) {
         basic.showString("Game Over")
         break
