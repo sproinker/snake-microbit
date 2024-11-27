@@ -3,6 +3,18 @@ let direction = 0
 let directions = [[1, 0], [0, -1], [-1, 0], [0, 1]]
 let snake = [[0, 0]]
 let food = [randint(1, 4), randint(1, 4)]
+buttonClicks.onButtonSingleClicked(buttonClicks.AorB.A, function on_button_single_clicked_a() {
+    
+})
+buttonClicks.onButtonDoubleClicked(buttonClicks.AorB.A, function on_button_double_clicked_a() {
+    
+})
+buttonClicks.onButtonSingleClicked(buttonClicks.AorB.B, function on_button_single_clicked_b() {
+    
+})
+buttonClicks.onButtonDoubleClicked(buttonClicks.AorB.B, function on_button_double_clicked_b() {
+    
+})
 while (true) {
     basic.clearScreen()
     led.plotBrightness(food[0], food[1], 255)
@@ -11,9 +23,6 @@ while (true) {
     }
     basic.pause(800)
     next_block = [(snake[0][0] + directions[direction][0]) % 5, (snake[0][1] + directions[direction][1]) % 5]
-    input.onButtonPressed(Button.A, function on_button_pressed_a() {
-        
-    })
     if (snake.indexOf(next_block) >= 0) {
         basic.showString("Game Over")
         break
@@ -31,6 +40,12 @@ while (true) {
     if (snake.length == 25) {
         basic.showString("You Win")
         break
+    }
+    
+    if (snake[0][1] < 0) {
+        snake[0][1] = 4
+    } else if (snake[0][0] < 0) {
+        snake[0][0] = 4
     }
     
 }

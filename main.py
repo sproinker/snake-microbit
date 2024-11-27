@@ -3,6 +3,22 @@ directions = [[1, 0], [0, -1], [-1, 0], [0, 1]]
 snake = [[0, 0]]
 food = [randint(1, 4), randint(1, 4)]
 
+def on_button_single_clicked_a():
+    pass
+buttonClicks.on_button_single_clicked(buttonClicks.AorB.A, on_button_single_clicked_a)
+
+def on_button_double_clicked_a():
+    pass
+buttonClicks.on_button_double_clicked(buttonClicks.AorB.A, on_button_double_clicked_a)
+
+def on_button_single_clicked_b():
+    pass
+buttonClicks.on_button_single_clicked(buttonClicks.AorB.B, on_button_single_clicked_b)
+
+def on_button_double_clicked_b():
+    pass
+buttonClicks.on_button_double_clicked(buttonClicks.AorB.B, on_button_double_clicked_b)
+
 while True:
     basic.clear_screen()
     led.plot_brightness(food[0], food[1], 255)
@@ -11,9 +27,6 @@ while True:
     basic.pause(800)
 
     next_block = [(snake[0][0] + directions[direction][0]) % 5, (snake[0][1] + directions[direction][1]) % 5]
-    def on_button_pressed_a():
-        pass
-    input.on_button_pressed(Button.A, on_button_pressed_a)
 
     if next_block in snake:
         basic.show_string("Game Over")
@@ -29,3 +42,8 @@ while True:
     if len(snake) == 25:
         basic.show_string("You Win")
         break
+    
+    if snake[0][1] < 0:
+        snake[0][1] = 4
+    elif snake[0][0] < 0:
+        snake[0][0] = 4
