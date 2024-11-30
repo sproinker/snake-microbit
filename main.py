@@ -16,12 +16,12 @@ buttonClicks.on_button_double_clicked(buttonClicks.AorB.A, on_button_double_clic
 
 def on_button_single_clicked_b():
     global direction
-    direction = 2
+    direction = 1
 buttonClicks.on_button_single_clicked(buttonClicks.AorB.B, on_button_single_clicked_b)
 
 def on_button_double_clicked_b():
     global direction
-    direction = 1
+    direction = 2
 buttonClicks.on_button_double_clicked(buttonClicks.AorB.B, on_button_double_clicked_b)
 
 while True:
@@ -32,6 +32,7 @@ while True:
     basic.pause(800)
 
     next_block = [(snake[0][0] + directions[direction][0]) % 5, (snake[0][1] + directions[direction][1]) % 5]
+    snake_in_food = next_block == food
 
     if next_block in snake:
         basic.show_string("Game Over")
@@ -39,17 +40,8 @@ while True:
     snake = [next_block] + snake
 
     # score system
-    if next_block == food:
-        while food in snake:
-            food = [randint(0,4), randint(0,4)]
-            if direction == 0:
-                snake.append([snake[0][0] - 1, snake[0][1] - 1])
-            elif direction == 1:
-                snake.append([snake[0][0], snake[0][1] - 1])
-            elif direction == 2:
-                snake.append([snake[0][0] + 1, snake[0][1] + 1])
-            elif direction == 3:
-                snake.append([snake[0][0] + 1, snake[0][1]])
+    if next_block[0] == food[0] and next_block[1] == food[1]:
+        food = [randint(0,4), randint(0,4)]
     else:
         snake.pop()
 
