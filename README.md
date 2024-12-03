@@ -1,6 +1,3 @@
-
-> Open this page at [https://sproinker.github.io/snake-microbit/](https://sproinker.github.io/snake-microbit/)
-
 ## Use as Extension
 
 This repository can be added as an **extension** in MakeCode.
