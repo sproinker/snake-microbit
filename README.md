@@ -1,3 +1,6 @@
+## Snake
+Project for IS (2nd semester)
+
 ## Use as Extension
 
 This repository can be added as an **extension** in MakeCode.
