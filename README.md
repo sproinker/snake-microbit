@@ -1,5 +1,6 @@
 ## Snake
 Project for IS (2nd semester)
+Also deifinitely the hardest snake game known to man
 
 ## Use as Extension
 
